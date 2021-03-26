@@ -1,5 +1,7 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.4.10'
+    id 'maven-publish'
+    id 'signing'
 }
 
 group 'co.moarr'
@@ -20,4 +22,29 @@ dependencies {
     testImplementation("io.kotest:kotest-runner-junit5:4.4.3")
     testImplementation("io.kotest:kotest-assertions-core:4.4.3")
     testImplementation("io.kotest:kotest-property:4.4.3")
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = 'ridespace'
+            from components.java
+            pom {
+                name = 'RidespaceKt'
+                description = 'A library that wraps the PTV RideSpace API with Kotlin.'
+            }
+        }
+    }
+    repositories {
+        maven {
+            def snapshotsRepoUrl = 'https://repo.moarr.co/snapshots'
+            def releasesRepoUrl = 'https://repo.moarr.co/releases'
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+
+            credentials {
+                username = System.getProperty('maven.username')
+                password = System.getProperty('maven.password')
+            }
+        }
+    }
 }

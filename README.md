@@ -3,7 +3,46 @@ This is a proof-of-concept Kotlin(/JVM) library for the [RideSpace](https://www.
 by [Public Transport Victoria](https://ptv.vic.gov.au). RideSpace is an application that provides live train locations and "loudness" in train stations.
 
 ## Installing
-[coming soon]
+RideSpace-Kt is provided via Abel Moarrensis' [Maven repository](https://repo.moarr.co).
+### Maven
+```xml
+<repositories>
+  <repository>
+    <id>AMoarr Maven</id>
+    <url>https://repo.moarr.co</url>
+  </repository>
+</repositories>
+```
+```xml
+<dependencies>
+  <dependency>
+    <groupId>co.moarr</groupId>
+    <artifactId>ridespace-kt</artifactId>
+    <version>0.1.0</version>
+  </dependency>
+</dependencies>
+```
+### Gradle (Groovy)
+```groovy
+repositories {
+  maven { url "https://repo.moarr.co" }
+}
+
+dependencies {
+  implementation group: "co.moarr", name: "ridespace-kt", version: "0.1.0"
+}
+```
+
+### Gradle (Kotlin)
+```kotlin
+repositories {
+    maven(url = "https://repo.moarr.co")
+}
+
+dependencies {
+    implementation(group = "co.moarr", name = "ridespace-kt", version = "0.1.0")
+}
+```
 
 ## How to use
 A very minimal example, that searches for stations with a set of coordinates.
