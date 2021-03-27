@@ -18,7 +18,7 @@ RideSpace-Kt is provided via Abel Moarrensis' [Maven repository](https://repo.mo
   <dependency>
     <groupId>co.moarr</groupId>
     <artifactId>ridespace-kt</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
   </dependency>
 </dependencies>
 ```
@@ -29,7 +29,7 @@ repositories {
 }
 
 dependencies {
-  implementation group: "co.moarr", name: "ridespace-kt", version: "0.1.0"
+  implementation group: "co.moarr", name: "ridespace-kt", version: "0.2.0"
 }
 ```
 
@@ -40,7 +40,7 @@ repositories {
 }
 
 dependencies {
-    implementation(group = "co.moarr", name = "ridespace-kt", version = "0.1.0")
+    implementation(group = "co.moarr", name = "ridespace-kt", version = "0.2.0")
 }
 ```
 
@@ -66,9 +66,10 @@ fun main() {
 ## Roadmap
 - [x] Search
   - [x] Search by name
-  - [ ] Search by stop ID (non-API method)
+  - [x] Search by stop ID
 - [x] Near me (using coordinates)
-- [ ] Trips from a station
+- [x] Trips from a station
+- [ ] Tram and bus support (not supported by RideSpace)
 
 ## License
 RideSpace datasets are licensed under the [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) license by Public Transport Victoria.

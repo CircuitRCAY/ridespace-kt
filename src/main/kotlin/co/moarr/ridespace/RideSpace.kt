@@ -17,6 +17,7 @@ package co.moarr.ridespace
 
 import co.moarr.ridespace.data.SearchQuery
 import co.moarr.ridespace.data.Station
+import co.moarr.ridespace.data.Trips
 import co.moarr.ridespace.impl.RideSpaceImpl
 import okhttp3.OkHttpClient
 
@@ -37,16 +38,42 @@ interface RideSpace {
      */
     fun search(query: String): List<SearchQuery>
 
+    /**
+     * Gets station data by a stop ID.
+     *
+     * @param id A stop ID that pertains to a station.
+     */
+    fun stopById(id: Int): Station
+
+    /**
+     * Gets a list of trips by a stop ID.
+     *
+     * @param id A stop ID that pertains to a station.
+     */
+    fun tripsById(id: Int): List<Trips>
+
     companion object {
         const val BASE_URL = "https://ridespace.coronavirus.vic.gov.au"
 
         lateinit var client: OkHttpClient
 
+        /**
+         * Creates a [RideSpace] instance with a custom [OkHttpClient].
+         *
+         * @param client The OkHttp client.
+         *
+         * @return A [RideSpace] instance.
+         */
         fun createWithClient(client: OkHttpClient): RideSpace {
             this.client = client
             return RideSpaceImpl(this.client)
         }
 
+        /**
+         * Creates a [RideSpace] instance with default options.
+         *
+         * @return A [RideSpace] instance.
+         */
         fun create(): RideSpace {
             this.client = OkHttpClient()
             return RideSpaceImpl(this.client)

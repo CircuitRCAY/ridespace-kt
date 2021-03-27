@@ -19,6 +19,7 @@ package co.moarr.ridespace.tests
 import co.moarr.ridespace.RideSpace
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.ints.shouldBeGreaterThan
+import io.kotest.matchers.shouldNotBe
 import okhttp3.OkHttpClient
 
 class SearchTest : StringSpec({
@@ -29,5 +30,18 @@ class SearchTest : StringSpec({
         val results = rs.search("Mernda")
 
         results[0].results.filter { it.name.contains("Mernda") }.size shouldBeGreaterThan 0
+    }
+
+    "search for the Glen Waverley station with RideSpace.Companion#create" {
+        val rs = RideSpace.create()
+        val query = rs.search("Glen Waverley")
+
+        query[0].results.filter { it.name.contains("Glen Waverley") }.size shouldBeGreaterThan 0
+    }
+
+    "get Ringwood station by ID and check if the capacity is not 'null'" {
+        val rs = RideSpace.create()
+        val ringwood = rs.stopById(19902)
+        ringwood.capacity shouldNotBe null
     }
 })
