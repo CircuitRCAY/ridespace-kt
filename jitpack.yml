@@ -1,5 +1,0 @@
-jdk:
-  - openjdk9
-install:
-  - echo "Publishing to JitPack..."
-  - ./gradlew clean build
