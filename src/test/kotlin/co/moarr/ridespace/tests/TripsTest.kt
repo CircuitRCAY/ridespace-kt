@@ -9,6 +9,6 @@ class TripsTest : StringSpec({
         val rs = RideSpace.create()
 
         val fss = rs.tripsById(19854)
-        fss[0].trips.filter { it.name.contains("Glen Waverley") }.size shouldBeGreaterThan 0
+        fss.filter { it.name.contains("Glen Waverley") }.size shouldBeGreaterThan 0
     }
 })

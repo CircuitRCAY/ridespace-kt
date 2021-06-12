@@ -3,20 +3,20 @@ This is a proof-of-concept Kotlin(/JVM) library for the [RideSpace](https://www.
 by [Public Transport Victoria](https://ptv.vic.gov.au). RideSpace is an application that provides live train locations and "loudness" in train stations.
 
 ## Installing
-RideSpace-Kt is provided via Abel Moarrensis' [Maven repository](https://repo.moarr.co).
+RideSpace-Kt is provided via [JitPack](https://jitpack.io)
 ### Maven
 ```xml
 <repositories>
   <repository>
-    <id>AMoarr Maven</id>
-    <url>https://repo.moarr.co</url>
+    <id>JitPack</id>
+    <url>https://jitpack.io</url>
   </repository>
 </repositories>
 ```
 ```xml
 <dependencies>
   <dependency>
-    <groupId>co.moarr</groupId>
+    <groupId>com.github.CircuitRCAY</groupId>
     <artifactId>ridespace-kt</artifactId>
     <version>0.2.0</version>
   </dependency>
@@ -25,7 +25,7 @@ RideSpace-Kt is provided via Abel Moarrensis' [Maven repository](https://repo.mo
 ### Gradle (Groovy)
 ```groovy
 repositories {
-  maven { url "https://repo.moarr.co" }
+  maven { url "https://jitpack.io" }
 }
 
 dependencies {
@@ -36,7 +36,7 @@ dependencies {
 ### Gradle (Kotlin)
 ```kotlin
 repositories {
-    maven(url = "https://repo.moarr.co")
+    maven(url = "https://jitpack.io")
 }
 
 dependencies {
