@@ -42,7 +42,7 @@ repositories {
 }
 
 dependencies {
-    implementation(group = "com.github.CircuitRCAY", name = "ridespace-kt", version = "0.3.0")
+    implementation(group = "com.github.CircuitRCAY", name = "ridespace-kt", version = "0.3.0"   )
 }
 ```
 
