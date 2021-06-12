@@ -21,6 +21,7 @@ import co.moarr.ridespace.RideSpace.Companion.BASE_URL
 import co.moarr.ridespace.data.SearchQuery
 
 import co.moarr.ridespace.data.Station
+import co.moarr.ridespace.data.Stops
 import co.moarr.ridespace.data.Trips
 import co.moarr.ridespace.except.InvalidBodyException
 import co.moarr.ridespace.gson.DateDeserialiser
@@ -89,6 +90,21 @@ class RideSpaceImpl(private val client: OkHttpClient) : RideSpace {
             throw InvalidBodyException()
         } else {
             return gson.fromJson(body, object : TypeToken<List<Trips?>?>() {}.type)
+        }
+    }
+
+    override fun trainStopsById(id: Int): List<Stops> {
+        val request = Request.Builder()
+            .url("${BASE_URL}/api/trip/Train/${id}/stops?dateTime=${Instant.now()}")
+            .build()
+
+        val resp = client.newCall(request).execute()
+
+        val body = resp.body?.string()
+        if(body.isNullOrEmpty()) {
+            throw InvalidBodyException()
+        } else {
+            return gson.fromJson(body, object : TypeToken<List<Stops?>?>() {}.type)
         }
     }
 }

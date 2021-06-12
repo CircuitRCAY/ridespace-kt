@@ -17,6 +17,7 @@ package co.moarr.ridespace
 
 import co.moarr.ridespace.data.SearchQuery
 import co.moarr.ridespace.data.Station
+import co.moarr.ridespace.data.Stops
 import co.moarr.ridespace.data.Trips
 import co.moarr.ridespace.impl.RideSpaceImpl
 import okhttp3.OkHttpClient
@@ -39,7 +40,7 @@ interface RideSpace {
     fun search(query: String): List<SearchQuery>
 
     /**
-     * Gets station data by a stop ID.
+     * Gets station data by a stop ID. Uses the current time, as RideSpace does not support historical data.
      *
      * @param id A stop ID that pertains to a station.
      */
@@ -51,6 +52,13 @@ interface RideSpace {
      * @param id A stop ID that pertains to a station.
      */
     fun tripsById(id: Int): List<Trips>
+
+    /**
+     * Retrieves stops by a train trip ID. Uses the current time, as RideSpace does not support historical data.
+     *
+     * @param id A train trip ID.
+     */
+    fun trainStopsById(id: Int): List<Stops>
 
     companion object {
         const val BASE_URL = "https://ridespace.coronavirus.vic.gov.au"

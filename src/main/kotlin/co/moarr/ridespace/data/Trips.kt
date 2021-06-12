@@ -13,12 +13,14 @@ data class Trips(val name: String, val trips: List<TripData>)
 /**
  * Represents a list of trips on a station.
  *
- * @property tripId the unique integer ID of a trip.
+ * @property tripId the unique integer ID of a trip. Used for [co.moarr.ridespace.RideSpace.trainStopsById]
  * @property transportType Represents the [TransportType].
  * [TransportType.TRAIN] is the default to reflect the (lack of) the API's support for other transport types.
  * @property name The name of the railway line that the trip is running on.
  * @property label The name of the trip, including the time when it arrives on the [platform]. Generally used for PIDs.
  * @property subLabel The type of the trip (express, "stopping all stations", etc).
+ * @property stopId Unique train station identifier.
+ * @property stopName The name of a train station.
  * @property arrivalTime A [LocalDateTime] object that represents the time arrived at the [platform].
  * @property arrivalLabel A label that provides the current status of the train (scheduled, on time, delayed)
  * @property arrivalType A PascalCase string that represents the current status of the train.

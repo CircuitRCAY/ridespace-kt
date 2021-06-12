@@ -38,7 +38,7 @@ data class Station(val id: Int,
                    val label: String,
                    val capacity: String,
                    val capacityLevel: Int,
-                   // TODO: make train/station capacity an actual enum
+                   // TODO: make train/station capacity an actual enum (0.4.0)
                    val capacityClass: String,
                    val distance: Int,
                    @SerializedName("lat")
